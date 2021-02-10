@@ -43,11 +43,8 @@ struct AddBookView: View {
                 
                 //MARK: RATING & REVIEW SECTION
                 Section {
-                    Picker("Rating", selection: $rating, content: {
-                        ForEach(0..<6) {
-                            Text("\($0)")
-                        }
-                    })
+                    RatingView(rating: $rating)
+                    TextField("Write a review", text: $review)
                 }
                 
                 
@@ -61,6 +58,7 @@ struct AddBookView: View {
                         newBook.author = self.author
                         newBook.rating = Int16(self.rating)
                         newBook.genre = self.genre
+                        newBook.review = self.review
                         
                         try? self.moc.save()
                         
