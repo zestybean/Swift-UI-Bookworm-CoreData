@@ -9,31 +9,25 @@ import SwiftUI
 
 struct ContentView: View {
     
+    //Core data stuff
     @Environment(\.managedObjectContext) var moc
-    @FetchRequest(entity: Student.entity(), sortDescriptors: []) var students: FetchedResults<Student>
+    @FetchRequest(entity: Book.entity(), sortDescriptors: []) var books: FetchedResults<Book>
+    
+    //Tracks wether the sheet is showing
+    @State private var showingAddScreen = false
     
     var body: some View {
-        VStack {
-            List {
-                ForEach(students, id: \.id) { student in
-                    Text(student.name ?? "Unknown")
-                }
-            }
-            
-            Button("Add") {
-                let firstNames = ["Ginny", "Harry", "Hermione", "Luna", "Ron"]
-                let lastNames = ["Granger", "Lovegood", "Potter", "Weasley"]
-                
-                
-                let chosenFirstName = firstNames.randomElement()!
-                let chosenLastName = lastNames.randomElement()!
-                
-                let student = Student(context: self.moc)
-                student.id = UUID()
-                student.name = "\(chosenFirstName) \(chosenLastName)"
-                
-                try? self.moc.save()
-            }
+        NavigationView {
+            Text("Count: \(books.count)")
+                .navigationBarTitle("Bookworm")
+                .navigationBarItems(trailing: Button(action: {
+                    self.showingAddScreen.toggle()
+                }, label: {
+                    Image(systemName: "plus")
+                }))
+                .sheet(isPresented: $showingAddScreen, content: {
+                    AddBookView().environment(\.managedObjectContext, self.moc)
+                })
         }
     }
 }
@@ -42,5 +36,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            
     }
 }
