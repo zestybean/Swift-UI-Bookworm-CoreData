@@ -21,7 +21,7 @@ struct ContentView: View {
             List {
                 ForEach(books, id: \.self) { book in
                     NavigationLink(
-                        destination: Text(book.title ?? "Unknown Title"),
+                        destination: DetailView(book: book),
                         label: {
                             EmojiRatingView(rating: book.rating)
                                 .font(.largeTitle)

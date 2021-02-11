@@ -17,6 +17,7 @@
 		2C9752B025D42E5C00937FFC /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9752AF25D42E5C00937FFC /* RatingView.swift */; };
 		2C9752B525D442C200937FFC /* EmojiRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9752B425D442C200937FFC /* EmojiRatingView.swift */; };
 		2CB57C8825D2205000BBBECA /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB57C8725D2205000BBBECA /* Persistence.swift */; };
+		2CBC16B025D463690076DB54 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBC16AF25D463690076DB54 /* DetailView.swift */; };
 		2CBFB1F125D36D330003D7C3 /* AddBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBFB1F025D36D330003D7C3 /* AddBookView.swift */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +55,7 @@
 		2C9752AF25D42E5C00937FFC /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 		2C9752B425D442C200937FFC /* EmojiRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiRatingView.swift; sourceTree = "<group>"; };
 		2CB57C8725D2205000BBBECA /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		2CBC16AF25D463690076DB54 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		2CBFB1F025D36D330003D7C3 /* AddBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -111,6 +113,7 @@
 				2C9752AF25D42E5C00937FFC /* RatingView.swift */,
 				2CBFB1F025D36D330003D7C3 /* AddBookView.swift */,
 				2C93E51425D2008000E330E8 /* Assets.xcassets */,
+				2CBC16AF25D463690076DB54 /* DetailView.swift */,
 				2CB57C8725D2205000BBBECA /* Persistence.swift */,
 				2C93E51E25D2008000E330E8 /* Info.plist */,
 				2C93E51B25D2008000E330E8 /* Bookworm_CoreData.xcdatamodeld */,
@@ -275,6 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C93E51D25D2008000E330E8 /* Bookworm_CoreData.xcdatamodeld in Sources */,
+				2CBC16B025D463690076DB54 /* DetailView.swift in Sources */,
 				2CB57C8825D2205000BBBECA /* Persistence.swift in Sources */,
 				2C9752B525D442C200937FFC /* EmojiRatingView.swift in Sources */,
 				2C93E51325D2008000E330E8 /* ContentView.swift in Sources */,
