@@ -11,7 +11,7 @@ struct ContentView: View {
     
     //Core data stuff
     @Environment(\.managedObjectContext) var moc
-    @FetchRequest(entity: Book.entity(), sortDescriptors: []) var books: FetchedResults<Book>
+    @FetchRequest(entity: Book.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Book.title, ascending: true), NSSortDescriptor(keyPath: \Book.author, ascending: true)]) var books: FetchedResults<Book>
     
     //Tracks wether the sheet is showing
     @State private var showingAddScreen = false
