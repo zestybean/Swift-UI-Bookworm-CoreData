@@ -11,6 +11,9 @@ struct ContentView: View {
     
     //Core data stuff
     @Environment(\.managedObjectContext) var moc
+    
+    //Fetch request gets the model from core data and NSSort sorts the data using
+    //the descriptors
     @FetchRequest(entity: Book.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Book.title, ascending: true), NSSortDescriptor(keyPath: \Book.author, ascending: true)]) var books: FetchedResults<Book>
     
     //Tracks wether the sheet is showing
@@ -33,9 +36,12 @@ struct ContentView: View {
                             }
                         })
                 }
+                .onDelete(perform: deleteBooks)
             }
                 .navigationBarTitle("Bookworm")
-                .navigationBarItems(trailing: Button(action: {
+                .navigationBarItems(
+                    leading: EditButton(),
+                    trailing: Button(action: {
                     self.showingAddScreen.toggle()
                 }, label: {
                     Image(systemName: "plus")
@@ -44,6 +50,20 @@ struct ContentView: View {
                     AddBookView().environment(\.managedObjectContext, self.moc)
                 })
         }
+    }
+    
+    //Delete from a core data fetch request
+    func deleteBooks(at offsets: IndexSet) {
+        for offset in offsets {
+            //Find this bok in our fetch request
+            let book = books[offset]
+            
+            //Delete from context
+            moc.delete(book)
+        }
+        
+        //Save the context
+        try? moc.save()
     }
 }
 
